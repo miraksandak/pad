@@ -1,0 +1,13 @@
+# OS/filesystem
+.DS_Store
+Thumbs.db
+*~
+~
+*.crdownload
+
+# IDE
+.vscode/
+.idea/
+
+# Dependencies/build
+node_modules/
