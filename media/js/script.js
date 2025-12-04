@@ -664,7 +664,9 @@ $(function(){
   }
   
   var slideIndex = 1;
-  showSlides(slideIndex);
+  if (document.getElementsByClassName("mySlides").length) {
+    showSlides(slideIndex);
+  }
   
   function plusSlides(n) {
     showSlides(slideIndex += n);
@@ -675,21 +677,28 @@ $(function(){
   }
   
   function showSlides(n) {
-    var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("gal-fotka");
     var captionText = document.getElementById("caption");
+
+    if (!slides.length || !dots.length) {
+      return;
+    }
+
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
+
+    for (var i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
+    for (var i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
+    if (captionText && dots[slideIndex-1]) {
+      captionText.innerHTML = dots[slideIndex-1].alt || '';
+    }
   }
   
   $(function(){
