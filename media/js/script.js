@@ -643,16 +643,22 @@ $(function(){
         console.log('cklc')
       })
   
-  
-      $(".icc-gallery").hide()
-      $(".close-gallery").hide()
-  
-      $("#gallery").click(function(){
-        $(".open-gallery").toggle()
-        $(".close-gallery").toggle()
-        $(".icc-gallery").toggle(500)
-        console.log("dsdsadsa")
-      })
+
+      // Toggle only on pages where the gallery toggle exists; keep gallery visible on dedicated gallery page
+      const $galleryWrap = $(".icc-gallery");
+      const $galleryToggle = $("[id='gallery']");
+      const hasGalleryToggle = $galleryToggle.length;
+
+      if (hasGalleryToggle && $galleryWrap.length) {
+        $(".close-gallery").hide();
+        $galleryWrap.hide();
+        $galleryToggle.on("click", function(){
+          $(".open-gallery, .close-gallery").toggle();
+          $galleryWrap.fadeToggle(350);
+        });
+      } else if ($galleryWrap.length) {
+        $galleryWrap.show();
+      }
   })
   
   function openModal() {

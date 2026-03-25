@@ -642,11 +642,11 @@ $(function(){
         $(".year-2024").show()
         console.log('cklc')
       })
-  
-  
-      $(".icc-gallery").hide()
+
+
       $(".close-gallery").hide()
-  
+      $(".icc-gallery").show()
+
       $("#gallery").click(function(){
         $(".open-gallery").toggle()
         $(".close-gallery").toggle()
