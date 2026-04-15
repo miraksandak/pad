@@ -1818,10 +1818,14 @@ grid-template-columns: 1fr 1fr 1fr;
 
 .time{
   color: #202020 !important;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
   padding: 5px !important;
   border-radius: 2px !important;
   width: 200px !important;
-  font-weight: bolder;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
 }
